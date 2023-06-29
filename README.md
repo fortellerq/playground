@@ -19,3 +19,10 @@ Syntax: ./backup.sh <source_dir> <target_dir>
 It creates .tar archive from directory given as a first argument and places it in target directory specified in second argument. Then, it deletes any files in target directory that are older than 5 days.
 
 !!! Be cautious when specifying target directory !!!
+
+## e1000e_fix.sh
+Fixes Intel Gigabit NIC random shutdowns when under load. You need to specify adapter name in the argument.
+
+More specifically, it disables hardware flow control for specified adapter and adds appropiate command to crontab that is launched on every reboot.
+
+If entry for specified adapter exists already in crontab, no changes are done to crontab.
