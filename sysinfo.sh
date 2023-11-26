@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # obsy, http://eko.one.pl
-# modded by forteller 23/11/26
+# modded by forteller 26.11.2023
 
 LINE1=80
 LINE=$((LINE1-5))

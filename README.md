@@ -39,3 +39,32 @@ Solution is to store this file in a location that does not get overwritten every
 This script modifies line formatting to optimize line formatting against usual 80 cols instead of lenght of /etc/banner (which can differ across different OpenWRT forks).
 
 Finally, additional line is added at top for improved looks of the output.
+
+After all of this, here is welcome screen after successful OpenWRT login
+
+```
+BusyBox v1.36.1 (2023-11-15 10:00:19 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 23.05.2, r23630-842932a63d
+ -----------------------------------------------------
+ -------------------------------------------------------------------------------
+ | Machine: Xiaomi AX3600                                                      |
+ | Uptime: 6d, 23:51:43                                                        |
+ | Load: 0.00 0.00 0.00                                                        |
+ | Flash: total: 173.6MB, free: 168.7MB, used: 0%                              |
+ | Memory: total: 407.6MB, free: 158.4MB, used: 61%                            |
+ | Leases: 0                                                                   |
+ | lan: dhcp, <ERASED_FOR_SECURITY>                                            |
+ | guest: none, ?                                                              |
+ | iot: static, <ERASED_FOR_SECURITY>                                          |
+ | radio1: lan, mode: ap, ssid: PMR-NETWORK-5G, channel: 104, conn: 1          |
+ | radio2: guest, mode: ap, ssid: PMR-GUEST, channel: 3, conn: 0               |
+ | radio2: iot, mode: ap, ssid: PMR-IOT, channel: 3, conn: 8                   |
+ -------------------------------------------------------------------------------
+```
