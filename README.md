@@ -26,3 +26,16 @@ Fixes Intel Gigabit NIC random shutdowns when under load. You need to specify ad
 More specifically, it disables hardware flow control for specified adapter and adds appropiate command to crontab that is launched on every reboot.
 
 If entry for specified adapter exists already in crontab, no changes are done to crontab.
+
+## sysinfo.sh
+Very slight modification of sysinfo.sh script that is part of eko.one.pl OpenWRT releases.
+
+Usually this script resides in /sbin/sysinfo.sh. When switching to any other OpenWRT fork (official one for example), /sbin directory gets overwritten leaving user with ugly error every login:
+```
+-ash: /etc/profile.d/99-sysinfo.sh: /sbin/sysinfo.sh: not found
+```
+Solution is to store this file in a location that does not get overwritten every uptade, for example in /root/sysinfo.sh.
+
+This script modifies line formatting to optimize line formatting against usual 80 cols instead of lenght of /etc/banner (which can differ across different OpenWRT forks).
+
+Finally, additional line is added at top for improved looks of the output.
