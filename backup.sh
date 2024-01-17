@@ -1,6 +1,9 @@
 #!/bin/bash
 #
 # forteller 27.02.2022
+# 
+# 24/01/17 - v0.2 - added verbose output when removing old backups
+# 22/02/27 - v0.1 - initial version
 
 # Check if directories exist
 if [ ! -d "/$1" ]; then
@@ -66,7 +69,7 @@ printf $line
 
 date "+%d/%m/%Y %T";
 printf "Now deleting files older than 5 days"
-find $target_dir -type f -mtime +5 -exec rm {} \;
+find $target_dir -type f -mtime +5 -exec rm -vf {} \;
 printf $line
 
 date "+%d/%m/%Y %T";
