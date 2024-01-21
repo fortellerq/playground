@@ -2,6 +2,7 @@
 #
 # forteller 27.02.2022
 # 
+# 24/01/21 - v0.3 - small fixes and adjustments to output
 # 24/01/17 - v0.2 - added verbose output when removing old backups
 # 22/02/27 - v0.1 - initial version
 
@@ -17,7 +18,7 @@ if [ ! -d "$2" ]; then
 fi
 
 #Variables definitions
-line="\n\n------------------------------------------\n\n"
+line="\n------------------------------------------------------------------------------\n"
 source_dir="$1"
 target_dir="$2"
 source_path_first_char=`echo "$source_dir" | cut -c1`
@@ -53,8 +54,8 @@ date "+%d/%m/%Y %T";
 printf "Listing target directory contents before doing anything:\n";
 ls_before=`ls -lah "$target_dir"`;
 df_before=`df -h $target_dir | awk 'NR==2{print$4}'`;
-printf "$ls_before";
-printf "\nFree space: $df_before";
+printf "$ls_before\n";
+printf "Free space: $df_before";
 printf $line;
 
 #Removing first slash for tar to stop complaining
@@ -63,12 +64,12 @@ if [[ "$source_path_first_char" == "/" ]]; then
 fi
 
 date "+%d/%m/%Y %T";
-printf "Now creating backup archive"
+printf "Now creating backup archive\n"
 tar cf "$target_dir""$backup_filename" -C / "$source_dir"
 printf $line
 
 date "+%d/%m/%Y %T";
-printf "Now deleting files older than 5 days"
+printf "Now deleting files older than 5 days\n"
 find $target_dir -type f -mtime +5 -exec rm -vf {} \;
 printf $line
 
