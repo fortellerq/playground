@@ -17,7 +17,7 @@ target_path="$4"
 $target_dir
 
 echo "ssh"
-ssh $ip -p $port -i $key_path 'mkdir -p /root/backup && sysupgrade -b /root/backup/backup-${HOSTNAME}-$(date +%F).tar.gz'
+ssh $ip -p $port -i $key_path 'mkdir -p /root/backup && sysupgrade -q -b /root/backup/backup-${HOSTNAME}-$(date +%F).tar.gz'
 echo "scp"
 scp -P $port -i $key_path root@$ip:/root/backup/* $target_path
 exit 0;
