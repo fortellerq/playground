@@ -2,6 +2,7 @@
 #
 # forteller 23.09.2024
 #
+# 24/09/23 - v0.2 - added -q and -k options
 # 24/09/23 - v0.1 - initial version
 #
 # Usage: ./backup_openwrt.sh [IP] [port] [keyfile_path] [target_path]
@@ -17,7 +18,7 @@ target_path="$4"
 $target_dir
 
 echo "ssh"
-ssh $ip -p $port -i $key_path 'mkdir -p /root/backup && sysupgrade -q -b /root/backup/backup-${HOSTNAME}-$(date +%F).tar.gz'
+ssh $ip -p $port -i $key_path 'mkdir -p /root/backup && sysupgrade -q -k -b /root/backup/backup-${HOSTNAME}-$(date +%F).tar.gz'
 echo "scp"
 scp -P $port -i $key_path root@$ip:/root/backup/* $target_path
 exit 0;
