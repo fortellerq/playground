@@ -2,6 +2,7 @@
 #
 # forteller 23.09.2024
 #
+# 24/09/27 - v0.4 - getting rid of scp to ensure compatibility with ubuntu 24.04
 # 24/09/24 - v0.3 - code cleanup, requirement to redirect STDOUT and STDERR, sending mail when fail, target cleanup
 # 24/09/23 - v0.2 - added -q and -k options
 # 24/09/23 - v0.1 - initial version
@@ -28,9 +29,7 @@ if [[ "$STD_OUT" == *"/dev/pts"* ]] || [[ "$STD_ERR" == *"/dev/pts"* ]]
 fi
 
 # actual logic
-ssh $IP -p $PORT -i $KEY_PATH 'mkdir -p /root/backup && sysupgrade -q -k -b /root/backup/backup-${HOSTNAME}-$(date +%F).tar.gz'
-scp -P $PORT -i $KEY_PATH root@$IP:/root/backup/* $TARGET_PATH
-ssh $IP -p $PORT -i $KEY_PATH 'rm -rf /root/backup/*'
+ssh $IP -p $PORT -i $KEY_PATH 'sysupgrade -k -b -' > $TARGET_PATH/backup-$IP-$(date +%F).tar.gz
 
 # send an email if there are errors
 if [[ -s $STD_ERR ]]
