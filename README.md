@@ -21,7 +21,7 @@ It creates .tar archive from directory given as a first argument and places it i
 !!! Be cautious when specifying target directory !!!
 
 ## backup_openwrt.sh
-Quick and dirty script for making OpenWRT router backups. Meant to be part of cron. First it uses ssh remotely to perform backup and then scp to copy backup to target location on local machine.
+Quick and dirty script for making OpenWRT router backups. Meant to be part of cron.
 
 ## backup_routeros.sh
 Another quick and dirty script for making routerOS device backups. Basically a copy of backup_openwrt.sh so the same rules apply. Execution differs, cause you need to provide remote ssh user as execution parameter.
