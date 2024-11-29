@@ -33,6 +33,9 @@ More specifically, it disables hardware flow control for specified adapter and a
 
 If entry for specified adapter exists already in crontab, no changes are done to crontab.
 
+## gb5parse.py
+Script that ChatGPT produced and I slightly modified. It parses output of Geekbench 5 benchmark results and presents it in CSV which then can be easily imported into Excel which I maintain.
+
 ## sysinfo.sh
 Very slight modification of sysinfo.sh script that is part of eko.one.pl OpenWRT releases.
 
