@@ -1,5 +1,11 @@
-import sys
+# forteller 24.11.2024
+# ChatGPT mostly :)
+#
+# 24/11/24 - v0.1 - initial version
+#
+# Usage: python3 gb3parse.py <path_to_geekbench3_output_file>"
 
+import sys
 
 def parse_geekbench3_results(filepath):
     with open(filepath, 'r') as file:
